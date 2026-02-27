@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Unique identifier for this launchd agent -->
+    <key>Label</key>
+    <string>com.user.syncssd</string>
+
+    <!-- Script to run -->
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/YOURUSERNAME/scripts/fileSync.sh</string>
+    </array>
+
+    <!-- Trigger when /Volumes changes (i.e. a drive mounts or unmounts) -->
+    <key>WatchPaths</key>
+    <array>
+        <string>/Volumes</string>
+    </array>
+
+    <!-- Minimum seconds between runs — prevents infinite loop when the script
+         writes back to the SSD and re-triggers the watch. 600 = 10 minutes. -->
+    <key>ThrottleInterval</key>
+    <integer>600</integer>
+
+    <!-- Do not run immediately on load -->
+    <key>RunAtLoad</key>
+    <false/>
+</dict>
+</plist>
