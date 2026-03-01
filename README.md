@@ -19,7 +19,7 @@ Automatically syncs folders from your Mac to an external SSD (or anything really
 
 - macOS (tested on Ventura / Sonoma)
 - `rsync` (included with macOS)
-- Terminal, `/bin/bash`, and `/usr/bin/rsync` with **Full Disk Access** enabled
+- `/bin/bash` with **Full Disk Access** enabled
 
 ---
 
@@ -69,13 +69,11 @@ DESTINATIONS=(
 
 ### 4. Grant Full Disk Access
 
-Go to **System Settings → Privacy & Security → Full Disk Access** and add all three:
+Go to **System Settings → Privacy & Security → Full Disk Access** and add:
 
 | Binary | Path |
 |--------|------|
-| Terminal | `/Applications/Utilities/Terminal.app` |
 | bash | `/bin/bash` |
-| rsync | `/usr/bin/rsync` |
 
 > **Tip:** In any macOS file picker, press **Cmd+Shift+G** to type a path directly — useful for navigating to `/bin/` and `/usr/bin/` which aren't browsable normally.
 
@@ -196,7 +194,7 @@ This happens because the sync client is writing files to the destinstaion, which
 
 **Permission errors — "Operation not permitted"**
 
-All three binaries need Full Disk Access: Terminal, `/bin/bash`, and `/usr/bin/rsync`. Missing any one of them causes this error, even if the others are granted.
+Make sure `/bin/bash` has Full Disk Access permissions. Missing any one of them causes this error, even if the others are granted.
 
 **Drive format — exFAT or FAT32**
 
